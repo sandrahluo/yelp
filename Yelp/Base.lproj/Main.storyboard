@@ -107,7 +107,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Yelp" id="DqH-Pg-W2B"/>
                     <connections>
-                        <outlet property="tableView" destination="tfc-nb-VeQ" id="kpe-Hq-gM9"/>
+                        <outlet property="tableView" destination="tfc-nb-VeQ" id="3Ld-x2-kBp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fgb-4b-F1b" userLabel="First Responder" sceneMemberID="firstResponder"/>

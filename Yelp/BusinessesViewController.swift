@@ -9,8 +9,7 @@
 import UIKit
 
 // implementing protocols for tableView
-class BusinessesViewController: UIViewController, UITableViewDelegate {
-    // need UITableViewDataSource?
+class BusinessesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var businesses: [Business]!
     @IBOutlet weak var tableView: UITableView!
@@ -21,6 +20,7 @@ class BusinessesViewController: UIViewController, UITableViewDelegate {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
+        // query to business model
         Business.searchWithTerm(term: "Thai", completion: { (businesses: [Business]?, error: Error?) -> Void in
             
             self.businesses = businesses
@@ -46,12 +46,14 @@ class BusinessesViewController: UIViewController, UITableViewDelegate {
             }
         }
     
-        func tableView(_ tableView: UITableView, cellForRowAtIndexPath: IndexPath) -> UITableViewCell {
+        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "BusinessCell", for: indexPath) as! BusinessCell
+                
+                //tableView.dequeueReusableCell(withIdentifier: "BusinessCell", for: IndexPath) as! BusinessCell
             
             // indexPath.row is the index of the cell in the tableView
-            cell.businesses = businesses[indexPath.row]
+            cell.business = businesses[indexPath.row]
             return cell
             
         }

@@ -28,7 +28,7 @@ class BusinessCell: UITableViewCell {
             // encapsulating a variable in a string
             reviewCountsLabel.text = "\(business.reviewCount!) Reviews"
             distanceLabel.text = business.distance
-        ratingImageView.setImageWith(business.ratingImageURL!)
+            ratingImageView.setImageWith(business.ratingImageURL!)
         }
     }
     
