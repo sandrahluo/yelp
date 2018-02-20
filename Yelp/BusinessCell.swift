@@ -31,12 +31,20 @@ class BusinessCell: UITableViewCell {
             ratingImageView.setImageWith(business.ratingImageURL!)
         }
     }
-    
+    // function that gets called when the cell is instantiated
     override func awakeFromNib() {
         super.awakeFromNib()
         // round the image of the business in tableView
         thumbImageView.layer.cornerRadius = 3
         thumbImageView.clipsToBounds = true
+        // the size of the label in IB is the largest we want it to be so wrap the content accordinglt
+        nameLabel.preferredMaxLayoutWidth = nameLabel.frame.size.width
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        // reevaluate this when the parent changes dimension (e.g. screen rotation)
+        nameLabel.preferredMaxLayoutWidth = nameLabel.frame.size.width
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
